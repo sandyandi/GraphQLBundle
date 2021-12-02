@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Overblog\GraphQLBundle\Error;
 
-use GraphQL\Error\Debug;
+use GraphQL\Error\DebugFlag;
 use GraphQL\Error\Error as GraphQLError;
 use GraphQL\Error\FormattedError;
 use GraphQL\Error\UserError as GraphQLUserError;
@@ -55,7 +55,7 @@ class ErrorHandler
         $debugMode = false;
 
         if ($debug) {
-            $debugMode = Debug::INCLUDE_TRACE | Debug::INCLUDE_DEBUG_MESSAGE;
+            $debugMode = DebugFlag::INCLUDE_TRACE | DebugFlag::INCLUDE_DEBUG_MESSAGE;
         }
 
         return function (GraphQLError $error) use ($debugMode): array {
